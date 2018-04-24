@@ -11,15 +11,14 @@ namespace Tree
     {
         static void Main(string[] args)
         {
-
-            int[] arr = { 10,  30, 40, 25, 50, 60, 70, 80, 90, 100, 110,
-                          120, 130, 140, 150, 160, 171, 180, 200, 190 };
+            int[] arr = { 30, 12,  40, 25, 50, 64, 77, 83, 100, 90,  110, 120, 140, 150, 130, 160, 171, 180, 200, 190};
             var bs = new BinarySearch();
-            var found1 = bs.Search(-5, arr);
-            var found2 = bs.Search(205, arr);
-            var found3 = bs.Search(181, arr);
-            var found4 = bs.Search(25, arr);
-            var found5 = bs.Search(200, arr);
+            bs.Search(-5, arr);
+            bs.Search(205, arr);
+            bs.Search(13, arr);
+            bs.Search(181, arr);
+            bs.Search(83, arr);
+            bs.Search(200, arr);
             Console.WriteLine("-------------------------------------");
 
 

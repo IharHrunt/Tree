@@ -12,13 +12,13 @@ namespace Tree
 
             bool found = false;
             int min = 0;
-            int max = arr.Length;
+            int max = arr.Length -1 ;
             int middle = Convert.ToInt32((max - min) / 2);
             int hop = 0;
             
             try
             {
-                if ((arr[0] > target) || (arr[arr.Length - 1] < target))
+                if ((arr[min] > target) || (arr[max] < target))
                 {
                     throw new Exception($"Error: the target value " + target + " is out of array values");
                 }
@@ -26,11 +26,6 @@ namespace Tree
                 while (!found)
                 {
                     hop++;
-                    if ((middle == min) && (middle == max) && (arr[middle] != target))
-                    {
-                        throw new Exception($"Error: the array does not contain the target value of {target}");
-                    }
-
                     if (target > arr[middle])
                     {
                         min = middle + 1;
@@ -45,16 +40,21 @@ namespace Tree
                     else
                     {
                         found = true;
-                        Console.WriteLine($"Success: {found}, target = {target}, found = {arr[middle]}, hop()s = {hop}");
+                        Console.WriteLine($"Success: {found}, target = {target}, found = {arr[middle]}, hop(s) = {hop}");                        
+                    }
+
+                    if (((middle <= min) || (middle >= max)) && (arr[middle] != target))
+                    {                        
+                        throw new Exception($"Error: the array does not contain the target value of {target}");
                     }
                 }
-                
+
                 return found;
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                return found;
+                Console.WriteLine(ex.Message);                
+                return true;
             }
         }        
     }   
